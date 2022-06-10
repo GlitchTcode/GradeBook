@@ -148,6 +148,7 @@ namespace GradeBook
                     Console.Clear();
                     int conglom = 0;
                     int numOfGrades = 0;
+                    //iterates through each student's grades, adds them, and progresses the counter. Counter is used at end so we know what to divide by
                     for (int i = 1; i <= studentDict.Count; i++)
                     {
                         temp = studentDict[i];
@@ -166,6 +167,7 @@ namespace GradeBook
                     Console.Clear();
                     int highest = 0;
                     Student winner = studentDict[1];
+                    //iterates through each student in the dict and sorts their grades. Then takes the last (whihc is the highest) value and compares it to the stored value. Highest value stays and it puts that object in winner variable
                     for (int i = 1; i <= studentDict.Count; i++)
                     {
                         Student tempHigh = studentDict[i];
@@ -186,6 +188,7 @@ namespace GradeBook
                     Console.Clear();
                     int lowest = 100;
                     Student loser = studentDict[1];
+                    //Almost exactly the same as the highest function but the other way. Takes first value in sorted List and compares.
                     for (int i = 1; i <= studentDict.Count; i++)
                     {
                         Student tempLow = studentDict[i];
