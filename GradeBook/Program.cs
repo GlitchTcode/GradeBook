@@ -9,6 +9,8 @@ namespace GradeBook
         {
             
             int studentCount = 1;
+
+            //Initial test student for testing features
             Dictionary<int, Student> studentDict = new Dictionary<int, Student>();
             Student[] students = {
                 new Student("Test", new List<int> { 50, 75 }, studentCount) };
@@ -20,7 +22,7 @@ namespace GradeBook
 
             }
 
-
+            //Main menu for app
         BREAK1:
             Console.Clear();
             Console.WriteLine("Welcome to the Grade Manager 2099: More Edgy than Morbius\n\n ");
@@ -34,6 +36,7 @@ namespace GradeBook
             Console.WriteLine("8. Exit Application\n\n");
             Console.Write("Please select an Option between 1-8: ");
             char selection;
+            //Here to catch format exception when someone just hits enter or types a non-number character in 
             try
             {
                 selection = char.Parse(Console.ReadLine().Trim(' '));
@@ -198,6 +201,7 @@ namespace GradeBook
                     Console.ReadLine();
                     goto BREAK1;
                    case '6':
+                    BREAK4:
                     Console.Clear();
                     Console.WriteLine("Grade Eraser MK16: Point it out and we'll erase it!\n\n\n");
                     Console.WriteLine("Current recorded students:");
@@ -207,7 +211,17 @@ namespace GradeBook
                         Console.WriteLine("Student ID: " + temp.studentID + " | Name: " + temp.name);
                     }
                     Console.Write("\n\n Which student's grade would you like to remove?: ");
-                    int removeSel = int.Parse(Console.ReadLine());
+                    int removeSel;
+                    try
+                    {
+                        removeSel = int.Parse(Console.ReadLine());
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Please enter the correct input type. Press enter to retry");
+                        Console.ReadLine();
+                        goto BREAK4;
+                    }
                     if (studentDict.ContainsKey(removeSel)) 
                     {
                         int counter = 1;
@@ -224,6 +238,7 @@ namespace GradeBook
                         Console.WriteLine("Grade Removed! Press enter to go to main menu");
                         Console.ReadLine();
                         goto BREAK1;
+                     
                     }else
                     {
                         Console.WriteLine("That student does not exist. Press enter to return to main menu.");
@@ -231,6 +246,7 @@ namespace GradeBook
                     }
 
                    case '7':
+                    BREAK5:
                     Console.Clear();
                     Console.WriteLine("Grade Changer Proteus Edition: If you dont't like it, change it!\n\n\n");
                     Console.WriteLine("Current recorded students:");
@@ -240,7 +256,17 @@ namespace GradeBook
                         Console.WriteLine("Student ID: " + temp.studentID + " | Name: " + temp.name);
                     }
                     Console.Write("\n\n Which student's grade would you like to change?: ");
-                    int editSel = int.Parse(Console.ReadLine());
+                    int editSel;
+                    try
+                    {
+                        editSel = int.Parse(Console.ReadLine());
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Please enter the correct input type. Press enter to retry");
+                        Console.ReadLine();
+                        goto BREAK5;
+                    }
                     if (studentDict.ContainsKey(editSel))
                     {
                         int counter = 1;
@@ -290,22 +316,7 @@ namespace GradeBook
                 this.studentID = studentID;
             }
 
-            //static public void AddGrade()
-            //{
-            //    Console.Write("You can add a grade here! Please enter the name of the student: ");
-            //    string addSel = Console.ReadLine();
-            //    Console.WriteLine("");
-            //    if (addSel == null)
-            //    {
-            //        Console.WriteLine("Student does not exist. Please enter the name of the student to add them to the Grade Book: ");
-            //        string newStudent = Console.ReadLine();
-            //        Console.WriteLine("Student added! Please enter the grade for the student!");
-            //        int newGrade = int.Parse(Console.ReadLine());
-            //        students.Add(newStudent, newGrade);
-
-            //    }
-
-            //}
+            
 
             static public void Main(string[] args)
             {
