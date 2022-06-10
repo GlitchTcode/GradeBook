@@ -52,8 +52,10 @@ namespace GradeBook
                 Console.Clear();
                 goto BREAK1;
             }
+            
             switch (selection)
             {
+                
                 case '1':
                     Console.Clear();
                     Console.WriteLine("Here are all the grades for each student: ");
@@ -72,6 +74,7 @@ namespace GradeBook
                     Console.WriteLine("Press enter to continue.");
                     Console.ReadLine();
                     goto BREAK1;
+                
                 case '2':
                 BREAK2:
                     Console.Clear();
@@ -163,6 +166,7 @@ namespace GradeBook
                     Console.WriteLine("Press enter to return to main menu.");
                     Console.ReadLine();
                     goto BREAK1;
+                
                 case '4':
                     Console.Clear();
                     int highest = 0;
@@ -184,7 +188,8 @@ namespace GradeBook
                     Console.WriteLine("\n\n\nPlease press enter to return to the Main Menu");
                     Console.ReadLine();
                     goto BREAK1;
-                 case '5':
+                
+                case '5':
                     Console.Clear();
                     int lowest = 100;
                     Student loser = studentDict[1];
@@ -203,7 +208,8 @@ namespace GradeBook
                     Console.WriteLine("\n\n\nPlease press enter to return to the Main Menu");
                     Console.ReadLine();
                     goto BREAK1;
-                   case '6':
+                   
+                case '6':
                     BREAK4:
                     Console.Clear();
                     Console.WriteLine("Grade Eraser MK16: Point it out and we'll erase it!\n\n\n");
@@ -248,7 +254,8 @@ namespace GradeBook
                         goto BREAK1;
                     }
 
-                   case '7':
+                   
+                case '7':
                     BREAK5:
                     Console.Clear();
                     Console.WriteLine("Grade Changer Proteus Edition: If you dont't like it, change it!\n\n\n");
@@ -296,7 +303,7 @@ namespace GradeBook
                         Console.WriteLine("That student does not exist. Press enter to return to main menu.");
                         goto BREAK1;
                     }
-
+                
                 case '8':
                     Console.WriteLine("Ending application. Please press enter to continue.");
                     break;
@@ -304,6 +311,7 @@ namespace GradeBook
             }
 
         }
+        
         public class Student
         {
             public string name;
