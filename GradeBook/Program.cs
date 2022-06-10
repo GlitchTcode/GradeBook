@@ -312,20 +312,20 @@ namespace GradeBook
 
         }
         
-        public class Student
-        {
-            public string name;
-            public List<int> grades;
-            public int studentID;
-
-
-            public Student(string name, List<int> grades, int studentID)
+            public class Student
             {
-                this.name = name;
+                public string name;
+                public List<int> grades;
+                public int studentID;
 
-                this.grades = grades;
-                this.studentID = studentID;
-            }
+
+                public Student(string name, List<int> grades, int studentID)
+                {
+                    this.name = name;
+
+                    this.grades = grades;
+                    this.studentID = studentID;
+                }
 
             
 
