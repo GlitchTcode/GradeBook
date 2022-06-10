@@ -161,7 +161,7 @@ namespace GradeBook
                     Console.Clear();
                     int highest = 0;
                     Student winner = studentDict[1];
-                    //iterates through each student in the dict and sorts their grades. Then takes the last (whihc is the highest) value and compares it to the stored value. Highest value stays and it puts that object in winner variable
+                    //iterates through each student in the dict and sorts their grades. Then takes the last (which is the highest) value and compares it to the stored value. Highest value stays and it puts that object in winner variable
                     for (int i = 1; i <= studentDict.Count; i++)
                     {
                         Student tempHigh = studentDict[i];
@@ -192,7 +192,7 @@ namespace GradeBook
                             loser = tempLow;
                         }
                     }
-                    Console.WriteLine("\n\n\nThe highest grade in the class was: " + lowest + ". This grade is held by " + loser.name);
+                    Console.WriteLine("\n\n\nThe lowest grade in the class was: " + lowest + ". This grade is held by " + loser.name);
                     Console.WriteLine("\n\n\nPlease press enter to return to the Main Menu");
                     Console.ReadLine();
                     goto BREAK1;
@@ -306,14 +306,12 @@ namespace GradeBook
             public Student(string name, List<int> grades, int studentID)
             {
                 this.name = name;
-
                 this.grades = grades;
                 this.studentID = studentID;
             }
 
             static public void Main(string[] args)
             {
-
                 MainMenu();
             }
 
