@@ -7,22 +7,18 @@ namespace GradeBook
     {
         static public void MainMenu()
         {
-            
             int studentCount = 1;
-
             //Initial test student for testing features
             Dictionary<int, Student> studentDict = new Dictionary<int, Student>();
             Student[] students = {
                 new Student("Test", new List<int> { 50, 75 }, studentCount) };
             studentCount++;
-
             foreach (Student s in students)
             {
                 studentDict.Add(s.studentID, s);
-
             }
 
-            //Main menu for app
+        //Main menu for app
         BREAK1:
             Console.Clear();
             Console.WriteLine("Welcome to the Grade Manager 2099: More Edgy than Morbius\n\n ");
@@ -52,10 +48,9 @@ namespace GradeBook
                 Console.Clear();
                 goto BREAK1;
             }
-            
             switch (selection)
             {
-                
+
                 case '1':
                     Console.Clear();
                     Console.WriteLine("Here are all the grades for each student: ");
@@ -74,7 +69,6 @@ namespace GradeBook
                     Console.WriteLine("Press enter to continue.");
                     Console.ReadLine();
                     goto BREAK1;
-                
                 case '2':
                 BREAK2:
                     Console.Clear();
@@ -97,7 +91,6 @@ namespace GradeBook
                         goto BREAK2;
                     }
                     Console.WriteLine("");
-
                     if (studentDict.ContainsKey(addSel))
                     {
                         Console.Write("Please enter the grade for student " + studentDict[addSel].name + ": ");
@@ -114,7 +107,6 @@ namespace GradeBook
                         studentDict[addSel].grades.Add(addGrade);
                         Console.WriteLine("Grade added to " + studentDict[addSel].name);
                         goto BREAK1;
-
                     }
                     else
                     {
@@ -127,7 +119,7 @@ namespace GradeBook
                             Console.ReadLine();
                             goto BREAK3;
                         }
-                        
+
                         Console.WriteLine("Student added! Please enter the grade for the student: ");
                         int newGrade;
                         try
@@ -146,7 +138,6 @@ namespace GradeBook
                         studentDict.Add(addTemp.studentID, addTemp);
                         goto BREAK1;
                     };
-
                 case '3':
                     Console.Clear();
                     int conglom = 0;
@@ -166,7 +157,6 @@ namespace GradeBook
                     Console.WriteLine("Press enter to return to main menu.");
                     Console.ReadLine();
                     goto BREAK1;
-                
                 case '4':
                     Console.Clear();
                     int highest = 0;
@@ -181,14 +171,12 @@ namespace GradeBook
                             highest = tempHigh.grades[tempHigh.grades.Count - 1];
                             winner = tempHigh;
                         }
-                        
-
                     }
                     Console.WriteLine("\n\n\nThe highest grade in the class was: " + highest + ". This grade is held by " + winner.name);
                     Console.WriteLine("\n\n\nPlease press enter to return to the Main Menu");
                     Console.ReadLine();
                     goto BREAK1;
-                
+
                 case '5':
                     Console.Clear();
                     int lowest = 100;
@@ -208,9 +196,8 @@ namespace GradeBook
                     Console.WriteLine("\n\n\nPlease press enter to return to the Main Menu");
                     Console.ReadLine();
                     goto BREAK1;
-                   
                 case '6':
-                    BREAK4:
+                BREAK4:
                     Console.Clear();
                     Console.WriteLine("Grade Eraser MK16: Point it out and we'll erase it!\n\n\n");
                     Console.WriteLine("Current recorded students:");
@@ -231,7 +218,7 @@ namespace GradeBook
                         Console.ReadLine();
                         goto BREAK4;
                     }
-                    if (studentDict.ContainsKey(removeSel)) 
+                    if (studentDict.ContainsKey(removeSel))
                     {
                         int counter = 1;
                         int remGrade;
@@ -243,20 +230,19 @@ namespace GradeBook
                         }
                         Console.Write("Enter the ID number of the grade you would like removed: ");
                         remGrade = int.Parse(Console.ReadLine());
-                        studentDict[removeSel].grades.RemoveAt(remGrade -1);
+                        studentDict[removeSel].grades.RemoveAt(remGrade - 1);
                         Console.WriteLine("Grade Removed! Press enter to go to main menu");
                         Console.ReadLine();
                         goto BREAK1;
-                     
-                    }else
+
+                    }
+                    else
                     {
                         Console.WriteLine("That student does not exist. Press enter to return to main menu.");
                         goto BREAK1;
                     }
-
-                   
                 case '7':
-                    BREAK5:
+                BREAK5:
                     Console.Clear();
                     Console.WriteLine("Grade Changer Proteus Edition: If you dont't like it, change it!\n\n\n");
                     Console.WriteLine("Current recorded students:");
@@ -293,7 +279,7 @@ namespace GradeBook
                         Console.Write("What would you like it changed to?: ");
                         newGrade = int.Parse(Console.ReadLine());
                         studentDict[editSel].grades.RemoveAt(editGrade - 1);
-                        studentDict[editSel].grades.Insert(editGrade -1 , newGrade);
+                        studentDict[editSel].grades.Insert(editGrade - 1, newGrade);
                         Console.WriteLine("Grade changed! Press enter to go to main menu");
                         Console.ReadLine();
                         goto BREAK1;
@@ -303,31 +289,27 @@ namespace GradeBook
                         Console.WriteLine("That student does not exist. Press enter to return to main menu.");
                         goto BREAK1;
                     }
-                
+
                 case '8':
                     Console.WriteLine("Ending application. Please press enter to continue.");
                     break;
-
             }
 
         }
-        
-            public class Student
+        public class Student
+        {
+            public string name;
+            public List<int> grades;
+            public int studentID;
+
+
+            public Student(string name, List<int> grades, int studentID)
             {
-                public string name;
-                public List<int> grades;
-                public int studentID;
+                this.name = name;
 
-
-                public Student(string name, List<int> grades, int studentID)
-                {
-                    this.name = name;
-
-                    this.grades = grades;
-                    this.studentID = studentID;
-                }
-
-            
+                this.grades = grades;
+                this.studentID = studentID;
+            }
 
             static public void Main(string[] args)
             {
